@@ -8,7 +8,7 @@ The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).*/
 
 
 var threeSumClosest = function(nums, target) {
-    let nearestSum='';
+    let nearestSum=0;
     nums = nums.sort((a,b)=>a-b);
     console.log(nums);
     for(let i=0;i<nums.length-2;i++){
@@ -19,7 +19,7 @@ var threeSumClosest = function(nums, target) {
             
             if(dif===0)return sum;
             else{
-                if(nearestSum===''|| Math.abs(dif)<Math.abs(nearestSum-target)){
+                if(nearestSum===0|| Math.abs(dif)<Math.abs(nearestSum-target)){
                     nearestSum=sum;
                     console.log("here");
                 }
