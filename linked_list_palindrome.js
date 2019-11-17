@@ -33,3 +33,35 @@ var isEqual = function(list1,list2){
     }
     return true;
 }
+
+
+ /* with using stack extra space */
+
+ var isPalindrome = function(head) {
+    if(head === null) return true;
+    if(head.next === null) return true;
+    
+    let slow=head;
+    let fast = head;
+    
+    let arr1 = [];
+    
+    while(fast!==null && fast.next !=null ){
+        arr1.push(slow.val);
+        slow=slow.next;
+        fast=fast.next.next;
+    }
+
+    if(fast!=null){
+        slow=slow.next;
+    }    
+
+    while(slow!=null){
+        let current = arr1.pop();
+        if(current !== slow.val){
+            return false;
+        }
+        slow=slow.next;
+    }
+    return true;
+}
